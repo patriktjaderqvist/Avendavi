@@ -1,78 +1,87 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import BackgroundText from './components/BackgroundText'
-import CSSFolder from './components/CSSFolder'
-import ProjectGallery from './components/ProjectGallery'
+import { useState, useEffect, useCallback } from 'react'
+import FolderLanding from './components/FolderLanding'
+import {
+  StoryTab,
+  ServicesTab,
+  ProcessTab,
+  WorkTab,
+  ConnectTab,
+  ProjectDetail,
+} from './components/Sections'
 
-// States: 'closed' | 'opening' | 'open' | 'closing'
+const TABS = [
+  { id: 'story', label: 'Story' },
+  { id: 'services', label: 'Services' },
+  { id: 'process', label: 'Process' },
+  { id: 'ventures', label: 'Work' },
+  { id: 'consulting', label: 'Consulting' },
+  { id: 'academic', label: 'Academic' },
+  { id: 'connect', label: 'Connect' },
+]
+
+const SHOW_FOLDER = true
+const SHOW_WATERMARK = true
+const SHOW_GRAIN = true
+
 export default function App() {
-  const [state, setState] = useState('closed')
+  const [state, setState] = useState(SHOW_FOLDER ? 'closed' : 'open')
+  const [tab, setTab] = useState('story')
+  const [openProject, setOpenProject] = useState(null)
 
   const handleOpen = useCallback(() => setState('open'), [])
-
   const handleClose = useCallback(() => {
-    setState('closing')
-    // Give the folder close animation time to play, then go idle
-    setTimeout(() => setState('closed'), 900)
+    if (!SHOW_FOLDER) return
+    setState('closed')
   }, [])
 
-  // Folder is ALWAYS rendered — it sits behind the gallery
-  const isClosing = state === 'closing'
-  const showGallery = state === 'open'
+  const goConnect = useCallback(() => setTab('connect'), [])
 
   return (
     <div
-      className="w-screen relative overflow-hidden"
-      style={{
-        background: 'var(--bg)',
-        height: '100dvh',
-      }}
+      className={`paper-warm ${SHOW_GRAIN ? 'grain' : ''}`}
+      style={{ minHeight: '100dvh' }}
     >
-      <div>
-        <BackgroundText />
-      </div>
+      {SHOW_FOLDER && state === 'closed' && (
+        <FolderLanding onOpen={handleOpen} />
+      )}
 
-      {/* Folder scene — always mounted, fades out once the gallery is visible */}
-      <div
-        className="absolute inset-0 z-10"
-        style={{
-          opacity: state === 'open' ? 0 : 1,
-          transition: 'opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1)',
-          pointerEvents: state === 'open' ? 'none' : 'auto',
-        }}
-      >
-        <CSSFolder onOpen={handleOpen} closing={isClosing} />
+      {state === 'open' && (
+        <div className="gallery">
+          <div className="gallery-paper-frame">
+            <div className="gallery-paper theme-paper">
+              <div className="tabs">
+                <div className="tab-row">
+                  {TABS.map(t => (
+                    <button
+                      key={t.id}
+                      className={`tab ${tab === t.id ? 'active' : ''}`}
+                      onClick={() => setTab(t.id)}
+                    >{t.label}</button>
+                  ))}
+                </div>
+                {SHOW_FOLDER && (
+                  <button className="tab-close" onClick={handleClose}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    Close
+                  </button>
+                )}
+              </div>
 
-        {/* Hint — only when fully idle */}
-        {state === 'closed' && (
-          <div className="absolute bottom-10 left-0 right-0 flex justify-center pointer-events-none">
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-              className="text-[11px] tracking-[0.2em] uppercase"
-              style={{ color: 'rgba(0,0,0,0.3)', fontWeight: 300 }}
-            >
-              Click to open &middot; Drag to explore
-            </motion.p>
+              {tab === 'story' && (SHOW_WATERMARK
+                ? <StoryTab />
+                : <div className="no-mark"><StoryTab /></div>)}
+              {tab === 'services' && <ServicesTab onGoConnect={goConnect} />}
+              {tab === 'process' && <ProcessTab />}
+              {tab === 'ventures' && <WorkTab category="ventures" onOpenProject={setOpenProject} />}
+              {tab === 'consulting' && <WorkTab category="consulting" onOpenProject={setOpenProject} />}
+              {tab === 'academic' && <WorkTab category="academic" onOpenProject={setOpenProject} />}
+              {tab === 'connect' && <ConnectTab />}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Gallery overlays on top — crossfades with the folder */}
-      <AnimatePresence>
-        {showGallery && (
-          <motion.div
-            key="gallery"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }}
-            exit={{ opacity: 0, transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] } }}
-            className="theme-light-paper absolute inset-0 z-20 overflow-y-auto overflow-x-hidden"
-          >
-            <ProjectGallery onClose={handleClose} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <ProjectDetail project={openProject} onClose={() => setOpenProject(null)} />
     </div>
   )
 }
