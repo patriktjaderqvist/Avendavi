@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0d0e10"/>
+  <text x="32" y="50"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-weight="700"
+        font-size="56"
+        fill="#ece9e3"
+        transform="rotate(180 32 32)">A</text>
+</svg>

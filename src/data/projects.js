@@ -62,17 +62,17 @@ export const PROJECTS = [
   },
   {
     id: "6", title: "ML Center", year: "2024 — present", category: "consulting",
-    role: "BDM",
+    role: "Partnerships",
     image: "/mlcenter.png",
-    short: "Business development for a Swedish investment community of 390+ small investors learning the markets together.",
-    goal: "Grow ML Center's member base and partnerships. Position the community as the home for Swedish retail investors who want structured education, technical and fundamental analysis, and long-term thinking — not quick signals.",
+    short: "Sourcing and structuring collaborations between ML Center — a 450-strong Swedish investor community with serious capital behind it — and companies across the financial sector.",
+    goal: "Open doors. Match ML Center with the right partners across the Swedish financial sector — brokers, fund managers, fintechs — where the community's reach and capital meet a company's need for engaged, informed investors.",
     highlights: [
-      "Member acquisition for the ML Community offering",
-      "Partnership outreach across the Swedish retail-investor space",
-      "Positioning around education, mentorship, and long-term discipline",
-      "Support for ML Charity — 50% of portfolio returns donated"
+      "Sourcing and negotiating partnerships across the Swedish financial sector",
+      "Counterparts include brokers, fund managers, and fintechs (specifics under NDA)",
+      "Positioning ML Center as a serious, capital-backed investor community",
+      "Ongoing role — pipeline and partner relationships"
     ],
-    stack: ["B2C Sales", "Community Growth", "Partnerships", "Investor Education"],
+    stack: ["B2B Partnerships", "Business Development", "Financial Sector"],
     links: { live: "https://mlcenter.se/", github: "" }
   },
   {
