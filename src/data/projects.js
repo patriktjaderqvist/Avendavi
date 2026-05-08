@@ -61,6 +61,21 @@ export const PROJECTS = [
     links: { live: "https://nordicwealthnetwork.com/", github: "" }
   },
   {
+    id: "6", title: "ML Center", year: "2024 — present", category: "consulting",
+    role: "BDM",
+    image: "/mlcenter.png",
+    short: "Business development for a Swedish investment community of 390+ small investors learning the markets together.",
+    goal: "Grow ML Center's member base and partnerships. Position the community as the home for Swedish retail investors who want structured education, technical and fundamental analysis, and long-term thinking — not quick signals.",
+    highlights: [
+      "Member acquisition for the ML Community offering",
+      "Partnership outreach across the Swedish retail-investor space",
+      "Positioning around education, mentorship, and long-term discipline",
+      "Support for ML Charity — 50% of portfolio returns donated"
+    ],
+    stack: ["B2C Sales", "Community Growth", "Partnerships", "Investor Education"],
+    links: { live: "https://mlcenter.se/", github: "" }
+  },
+  {
     id: "5", title: "Catery", year: "2024 — 2025", category: "consulting",
     role: "Co-Founder",
     image: "/catery.png",
