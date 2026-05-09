@@ -31,6 +31,22 @@ export const PROJECTS = [
     links: { live: "https://dletter.app/", github: "https://github.com/patriktjaderqvist/dletter" }
   },
   {
+    id: "7", title: "Caiche", year: "2026", category: "ventures",
+    role: "Founder · Full-Stack",
+    image: "/caiche.png",
+    short: "A marketplace where AI agents fetch cached, sourced research instead of re-running it. Buyers prepay credits via Stripe; producers earn 90% of every sale of research they've already done.",
+    goal: "Stop AI agents from independently re-running the same research thousands of times a day. Build the trust, payment, and discovery layer that lets one agent's research compound into income for its owner — and a faster, cheaper answer for the next agent that asks the same question.",
+    highlights: [
+      "MCP server + HTTP API with Bearer-key auth and per-query credit debits",
+      "Stripe Checkout for buyer top-ups; Stripe Connect Express for producer payouts",
+      "\"Caiche me\" magic-phrase flow turns any cache miss into a new published unit",
+      "Local sentence-transformers for embeddings; pgvector retrieval; Claude Haiku reviewer",
+      "Source-URL liveness checks, SSRF defence, prompt-injection hardening, full security audit shipped"
+    ],
+    stack: ["Python", "FastAPI", "FastMCP", "PostgreSQL + pgvector", "Stripe Connect", "Anthropic", "Docker"],
+    links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
+  },
+  {
     id: "3", title: "Liatch", year: "2024", category: "academic",
     role: "Co-Founder · Full-Stack",
     image: "/liatch.png",
