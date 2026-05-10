@@ -47,7 +47,7 @@ export const PROJECTS = [
     links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
   },
   {
-    id: "3", title: "Liatch", year: "2024", category: "academic",
+    id: "3", title: "Liatch", year: "2026", category: "academic",
     role: "Co-Founder · Full-Stack",
     image: "/liatch.png",
     short: "Three-sided marketplace pairing Swedish vocational students, schools, and companies for LIA placements.",
@@ -62,7 +62,7 @@ export const PROJECTS = [
     links: { live: "https://liatch.com/", github: "https://github.com/patriktjaderqvist/liatch" }
   },
   {
-    id: "4", title: "Nordic Wealth Network", year: "2024 — present", category: "consulting",
+    id: "4", title: "Nordic Wealth Network", year: "2026 — present", category: "consulting",
     role: "BDM",
     image: "/nwn.png",
     short: "Business development at a Nordic capital advisory. Owning the full sales cycle.",
