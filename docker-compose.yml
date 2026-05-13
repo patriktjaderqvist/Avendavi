@@ -1,0 +1,42 @@
+# Single-service compose for the Avendavi SPA. The shared Caddy reverse
+# proxy lives on the `web` external network and routes by Host header.
+#
+# Deploy on the server:
+#   docker compose up -d --build
+#
+# Caddy must be configured (separately) to forward `avendavi.com` (and
+# `www.avendavi.com` if desired) to this container on port 8080.
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: avendavi:latest
+    container_name: avendavi
+    restart: unless-stopped
+
+    # Load runtime env from a local .env. The code currently doesn't read any
+    # env vars (build-time `VITE_*` would have to be passed as build args
+    # instead), but this keeps the door open for future additions and lets
+    # operators set Caddy-routing labels or VIRTUAL_HOST-style variables.
+    env_file:
+      - .env
+
+    # No host port published. The shared Caddy proxy reaches us by container
+    # name on the `web` network.
+    expose:
+      - "8080"
+
+    networks:
+      - web
+
+    # Sensible defaults for an idle static container
+    mem_limit: 256m
+    pids_limit: 128
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  web:
+    external: true
