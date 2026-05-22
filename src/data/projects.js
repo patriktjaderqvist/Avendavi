@@ -47,6 +47,22 @@ export const PROJECTS = [
     links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
   },
   {
+    id: "8", title: "EasyKVM", year: "2026", category: "ventures",
+    role: "Founder · Full-Stack",
+    image: "/easykvm.png",
+    short: "A software KVM switch. Press a hotkey — your monitor flips between two computers; keyboard, mouse, and audio follow. No hardware box, no cloud, no traffic ever leaves the LAN.",
+    goal: "Replace the hardware KVM. Most people don't want a $200 box and a port-matching ordeal — they want the result: one monitor, one keyboard, one mouse, two computers, one hotkey to swap. EasyKVM does that in software over the LAN.",
+    highlights: [
+      "Monitor input switching via DDC/CI — no pixel streaming, native display quality on each machine",
+      "Keyboard, mouse, and audio handoff with <50 ms LAN round-trip latency; ScreenCaptureKit on macOS 13+",
+      "Pair over LAN with a 6-digit code; TLS handshake with TOFU cert-thumbprint pinning, no accounts, zero telemetry",
+      "Native Swift / AppKit app on Mac, .NET 8 with WebView2 on Windows; Sparkle auto-updates signed with EdDSA",
+      "Ed25519-signed license tokens verified offline on every launch; Stripe checkout + Fastify/Postgres license server"
+    ],
+    stack: ["Swift / AppKit", ".NET 8", "Fastify (Node 22)", "PostgreSQL 16", "Stripe", "Sparkle / Ed25519", "Docker"],
+    links: { live: "https://easykvm.app/", github: "" }
+  },
+  {
     id: "3", title: "Liatch", year: "2026", category: "academic",
     role: "Co-Founder · Full-Stack",
     image: "/liatch.png",
