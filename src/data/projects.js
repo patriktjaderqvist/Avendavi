@@ -75,6 +75,25 @@ export const PROJECTS = [
     links: { live: "https://easykvm.app/", github: "" }
   },
   {
+    id: "9", slug: "proprinse", title: "Proprinse", year: "2026", category: "ventures",
+    role: "Founder · Full-Stack",
+    imageSmall: "/proprinse-400.webp",
+    imageLarge: "/proprinse-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Proprinse's homepage, a drifting sports car in tyre smoke behind the italic serif headline 'Best discounts, points on top.'",
+    short: "A prop firm discount and rewards platform where one code, RINSE, gets the best discount every listed firm runs. Eligible firms pay points on top, redeemable in the rewards store.",
+    goal: "Stop traders paying full price. Prop firm discount codes are scattered across affiliate links and Discord posts, and none of them tell you whether the code you found is the best one the firm actually runs. Proprinse only lists firms where it is — one code everywhere — and pays points on the eligible ones on top of the discount.",
+    highlights: [
+      "One code, RINSE, across every listed firm — a firm is only listed if that code is the best discount it runs",
+      "Points earned on eligible firms on top of the discount, redeemable in the rewards store",
+      "Firm directory covering Apex Trader Funding, E8 Markets, FundedNext, Lucid Trading, My Funded Futures, TakeProfit Trader, and Topstep",
+      "Trader accounts with a tools section and a scratch card playable once a day",
+      "Ambassador programme and a Discord club for the trader community around it"
+    ],
+    stack: ["Next.js", "React"],
+    links: { live: "https://proprinse.com/", github: "" }
+  },
+  {
     id: "3", slug: "liatch", title: "Liatch", year: "2026", category: "academic",
     role: "Co-Founder · Full-Stack",
     imageSmall: "/liatch-400.webp",
