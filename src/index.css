@@ -64,6 +64,30 @@ html { scroll-behavior: smooth; }
 }
 ::selection { background: rgba(20, 18, 14, 0.12); color: var(--ink); }
 
+[hidden] { display: none !important; }
+
+/* ── Skip link ── */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 18px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink-muted);
+}
+.skip-link:focus {
+  top: 16px;
+}
+/* <main> is only focused programmatically by the skip link — no ring */
+main:focus { outline: none; }
+
 /* Subtle grain over everything */
 .grain::before {
   content: '';
@@ -276,6 +300,13 @@ html { scroll-behavior: smooth; }
 .folder-body {
   transform-style: preserve-3d;
   position: relative;
+  display: block;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   width: 50vmin;
   height: calc(50vmin / 1.414);
   cursor: pointer;
@@ -611,8 +642,17 @@ html { scroll-behavior: smooth; }
   display: inline-block;
 }
 .watermark-A .watermark-glyph {
-  transform: rotate(180deg) !important;
-  transform-origin: center center !important;
+  width: 1.188em;
+  height: 1em;
+  background-color: rgba(20, 18, 14, 0.04);
+  -webkit-mask-image: url('/logo-mark.png');
+  mask-image: url('/logo-mark.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 /* ── Story (editorial) ── */
@@ -883,17 +923,12 @@ html { scroll-behavior: smooth; }
 }
 .service-row {
   display: grid;
-  grid-template-columns: 100px 1fr auto;
+  grid-template-columns: 100px 1fr 130px;
   gap: clamp(20px, 4vw, 60px);
   align-items: baseline;
   padding: clamp(28px, 4vw, 48px) 0;
   border-bottom: 1px solid var(--ink-muted);
   position: relative;
-  cursor: pointer;
-  transition: background 0.4s ease;
-}
-.service-row:hover {
-  background: rgba(20, 18, 14, 0.02);
 }
 .service-row .num {
   font-family: var(--font-display);
@@ -920,33 +955,16 @@ html { scroll-behavior: smooth; }
   font-weight: 400;
   white-space: nowrap;
   align-self: center;
-  transition: color 0.3s, transform 0.4s;
-}
-.service-row:hover .marker {
-  color: var(--ink);
-  transform: translateX(-4px);
 }
 .service-row .description {
   grid-column: 2;
   margin-top: clamp(14px, 1.6vw, 20px);
-  max-height: 0;
-  overflow: hidden;
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(0.9rem, 1.1vw, 0.98rem);
   line-height: 1.85;
   color: var(--ink-body);
   max-width: 60ch;
-  transition: max-height 0.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.3s ease;
-  opacity: 0;
-}
-.service-row.open .description {
-  max-height: 240px;
-  opacity: 1;
-  margin-bottom: 6px;
-}
-.service-row.open .marker {
-  color: var(--ink);
 }
 
 /* ── Process ── */
@@ -1006,8 +1024,6 @@ html { scroll-behavior: smooth; }
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  --mx: 50%;
-  --my: 50%;
 }
 .idx-head {
   display: grid;
@@ -1073,6 +1089,7 @@ html { scroll-behavior: smooth; }
 }
 .idx-desc {
   grid-column: 2 / 3;
+  grid-row: 2;
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
@@ -1083,6 +1100,7 @@ html { scroll-behavior: smooth; }
 }
 .idx-meta {
   grid-column: 3 / 5;
+  grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -1140,6 +1158,7 @@ html { scroll-behavior: smooth; }
 }
 .idx-readmore {
   grid-column: 2 / 5;
+  grid-row: 3;
   margin-top: 18px;
   font-family: var(--font-body);
   font-size: 10px;
@@ -1154,32 +1173,24 @@ html { scroll-behavior: smooth; }
   letter-spacing: 0.36em;
 }
 
-/* Hover-reveal thumbnail — follows cursor */
+/* Static thumbnail plate — sits in the card, no hover required */
 .index-row .idx-thumb {
-  position: absolute;
-  left: var(--mx);
-  top: var(--my);
-  width: 280px;
-  height: 200px;
-  margin: -100px 0 0 -140px;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 10;
-  box-shadow: 0 30px 60px -20px rgba(20, 18, 14, 0.45), 0 14px 30px -10px rgba(20, 18, 14, 0.3);
+  display: block;
+  grid-column: 2 / 3;
+  grid-row: 1;
+  max-width: 400px;
+  border: 1px solid var(--ink-ghost);
   background: var(--paper);
+  overflow: hidden;
 }
 .index-row .idx-thumb img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.05);
   display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(0.16);
+  transition: filter 0.4s ease;
 }
-.index-row:hover .idx-thumb {
-  opacity: 1;
-  transform: scale(1);
-}
+.index-row:hover .idx-thumb img { filter: grayscale(0); }
 
 @media (max-width: 768px) {
   .idx-head {
@@ -1192,12 +1203,12 @@ html { scroll-behavior: smooth; }
   .index-row .idx-role { grid-area: role; font-size: 0.85rem; }
   .index-row .idx-year { grid-area: year; font-size: 9px; }
   .index-row .idx-arrow { display: none; }
-  .index-row .idx-thumb { display: none; }
+  .index-row .idx-thumb { grid-area: thumb; max-width: none; }
   .index-row:hover .idx-head,
   .index-row:hover .idx-body { /* no shift on mobile */ }
   .idx-body {
     grid-template-columns: 36px 1fr;
-    grid-template-areas: ". desc" ". meta" ". more";
+    grid-template-areas: ". thumb" ". desc" ". meta" ". more";
     gap: 14px;
     padding-top: 16px;
   }
@@ -1325,9 +1336,19 @@ html { scroll-behavior: smooth; }
   font-weight: 400;
   font-size: 36px;
   color: var(--ink-dim);
-  transform: rotate(180deg);
   display: inline-block;
   line-height: 1;
+  width: 1.188em;
+  height: 1em;
+  background-color: var(--ink-dim);
+  -webkit-mask-image: url('/logo-mark.png');
+  mask-image: url('/logo-mark.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 .connect-footer .marque {
   margin-top: 16px;
@@ -1378,6 +1399,9 @@ html { scroll-behavior: smooth; }
 .detail-drawer.open {
   transform: translateX(0);
 }
+.detail-drawer:focus {
+  outline: none;
+}
 .detail-drawer .close {
   position: absolute;
   top: 24px;
@@ -1405,7 +1429,7 @@ html { scroll-behavior: smooth; }
   margin-bottom: clamp(28px, 4vw, 44px);
 }
 .detail-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.detail-content h1 {
+.detail-content h2 {
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(2rem, 4.4vw, 3rem);
@@ -1499,7 +1523,7 @@ html { scroll-behavior: smooth; }
   .toolbox-columns { grid-template-columns: repeat(2, 1fr); gap: 36px 48px; }
   .process { grid-template-columns: repeat(2, 1fr); }
   .process-step:last-child { grid-column: 1 / -1; max-width: 50%; }
-  .service-row { grid-template-columns: 80px 1fr auto; }
+  .service-row { grid-template-columns: 80px 1fr 110px; }
 }
 
 /* ── Mobile ── */
@@ -1531,12 +1555,18 @@ html { scroll-behavior: smooth; }
 
 /* ── Small phones (≤480px) ── */
 @media (max-width: 480px) {
-  .tabs { padding: 12px 12px 0; }
+  .tabs { padding: 12px 12px 0; flex-wrap: wrap; row-gap: 4px; }
+  /* Wrap the tab strip to multiple rows instead of scrolling off-screen */
+  .tab-row { flex: 1 1 100%; flex-wrap: wrap; overflow-x: visible; order: 2; }
+  .tab-close { order: 1; margin-left: auto; }
   .tab { padding: 14px 10px; font-size: 8.5px; letter-spacing: 0.14em; }
   .display { letter-spacing: 0.04em; }
   .story-masthead { padding: clamp(40px, 8vw, 64px) 16px clamp(16px, 3vw, 24px); }
   .section { padding: clamp(32px, 8vw, 56px) 16px; }
   .connect-hero h2 { letter-spacing: 0.02em; }
+  /* Move the wordmark clear of the folder so the full word reads */
+  .landing-wordmark { align-items: flex-start; padding-top: clamp(64px, 14vh, 120px); }
+  .landing-wordmark span { font-size: clamp(1.6rem, 9vw, 2.6rem); letter-spacing: 0.22em; }
 }
 
 /* ── Landscape phones (short height) ── */
@@ -1561,6 +1591,7 @@ html { scroll-behavior: smooth; }
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

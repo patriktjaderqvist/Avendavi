@@ -1,0 +1,20 @@
+{
+  "name": "Avendavi",
+  "short_name": "Avendavi",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ece9e3",
+  "theme_color": "#ece9e3",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "1500x1500"
+    }
+  ]
+}

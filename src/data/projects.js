@@ -1,8 +1,11 @@
 export const PROJECTS = [
   {
-    id: "1", title: "Traided", year: "2025", category: "ventures",
+    id: "1", slug: "traided", title: "Traided", year: "2025", category: "ventures",
     role: "Founder · Full-Stack",
-    image: "/traided.png",
+    imageSmall: "/traided-400.webp",
+    imageLarge: "/traided-1200.webp",
+    imageW: 1200, imageH: 598,
+    imageAlt: "Traided's dark landing page, headline 'Your Edge, Our Execution' next to a chat panel logging a BTC trade execution.",
     short: "Natural-language trading automation. Strategies described in plain English, executed 24/7.",
     goal: "Let anyone automate trading strategies without writing code. Translate plain-English strategy descriptions into executable trading logic that runs around the clock.",
     highlights: [
@@ -16,9 +19,12 @@ export const PROJECTS = [
     featured: true
   },
   {
-    id: "2", title: "DLetter", year: "2025", category: "ventures",
+    id: "2", slug: "dletter", title: "DLetter", year: "2025", category: "ventures",
     role: "Founder · Full-Stack",
-    image: "/dletter.png",
+    imageSmall: "/dletter-400.webp",
+    imageLarge: "/dletter-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "DLetter's dark landing page, 'Your Discord, Simplified.' beside a daily-digest mockup ringed by floating Discord messages.",
     short: "Discord noise turned into a daily digest. Thousands of messages, one inbox-friendly summary.",
     goal: "Turn Discord noise into signal. Stay on top of active servers without scrolling through thousands of messages.",
     highlights: [
@@ -31,9 +37,12 @@ export const PROJECTS = [
     links: { live: "https://dletter.app/", github: "https://github.com/patriktjaderqvist/dletter" }
   },
   {
-    id: "7", title: "Caiche", year: "2026", category: "ventures",
+    id: "7", slug: "caiche", title: "Caiche", year: "2026", category: "ventures",
     role: "Founder · Full-Stack",
-    image: "/caiche.png",
+    imageSmall: "/caiche-400.webp",
+    imageLarge: "/caiche-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Caiche in stark black on white: 'The cache for agent research', under a preview banner noting payments are in test mode.",
     short: "A marketplace where AI agents fetch cached, sourced research instead of re-running it. Buyers prepay credits via Stripe; producers earn 90% of every sale of research they've already done.",
     goal: "Stop AI agents from independently re-running the same research thousands of times a day. Build the trust, payment, and discovery layer that lets one agent's research compound into income for its owner — and a faster, cheaper answer for the next agent that asks the same question.",
     highlights: [
@@ -47,9 +56,12 @@ export const PROJECTS = [
     links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
   },
   {
-    id: "8", title: "EasyKVM", year: "2026", category: "ventures",
+    id: "8", slug: "easykvm", title: "EasyKVM", year: "2026", category: "ventures",
     role: "Founder · Full-Stack",
-    image: "/easykvm.png",
+    imageSmall: "/easykvm-400.webp",
+    imageLarge: "/easykvm-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "EasyKVM's headline 'The software KVM switch that flips your monitor between two computers' beside the paired app window.",
     short: "A software KVM switch. Press a hotkey — your monitor flips between two computers; keyboard, mouse, and audio follow. No hardware box, no cloud, no traffic ever leaves the LAN.",
     goal: "Replace the hardware KVM. Most people don't want a $200 box and a port-matching ordeal — they want the result: one monitor, one keyboard, one mouse, two computers, one hotkey to swap. EasyKVM does that in software over the LAN.",
     highlights: [
@@ -63,9 +75,12 @@ export const PROJECTS = [
     links: { live: "https://easykvm.app/", github: "" }
   },
   {
-    id: "3", title: "Liatch", year: "2026", category: "academic",
+    id: "3", slug: "liatch", title: "Liatch", year: "2026", category: "academic",
     role: "Co-Founder · Full-Stack",
-    image: "/liatch.png",
+    imageSmall: "/liatch-400.webp",
+    imageLarge: "/liatch-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Liatch's black Swedish landing page, 'Hitta din nästa praktik', with a search field and an orange Hitta Plats button.",
     short: "Three-sided marketplace pairing Swedish vocational students, schools, and companies for LIA placements.",
     goal: "Simplify the LIA internship process for Swedish vocational students. Connect schools, students, and companies on one platform.",
     highlights: [
@@ -78,9 +93,12 @@ export const PROJECTS = [
     links: { live: "https://liatch.com/", github: "https://github.com/patriktjaderqvist/liatch" }
   },
   {
-    id: "4", title: "Nordic Wealth Network", year: "2026 — present", category: "consulting",
+    id: "4", slug: "nordic-wealth-network", title: "Nordic Wealth Network", year: "2026 — present", category: "consulting",
     role: "BDM",
-    image: "/nwn.png",
+    imageSmall: "/nwn-400.webp",
+    imageLarge: "/nwn-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Nordic Wealth Network homepage over a wind-turbine and solar-farm sunset photo, listing NYSE, TSX, OMX exchange logos.",
     short: "Business development at a Nordic capital advisory. Owning the full sales cycle.",
     goal: "Build pipeline with family offices, pension funds, and long-term capital providers. Match growth-stage companies with investors whose horizons and values align.",
     highlights: [
@@ -93,9 +111,12 @@ export const PROJECTS = [
     links: { live: "https://nordicwealthnetwork.com/", github: "" }
   },
   {
-    id: "6", title: "ML Center", year: "2024 — present", category: "consulting",
+    id: "6", slug: "ml-center", title: "ML Center", year: "2024 — present", category: "consulting",
     role: "Partnerships",
-    image: "/mlcenter.png",
+    imageSmall: "/mlcenter-400.webp",
+    imageLarge: "/mlcenter-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "ML Center's Swedish homepage: 'Tack för senaste ML Eventet!' over a photo of guests at an outdoor evening gathering.",
     short: "Sourcing and structuring collaborations between ML Center — a 450-strong Swedish investor community with serious capital behind it — and companies across the financial sector.",
     goal: "Open doors. Match ML Center with the right partners across the Swedish financial sector — brokers, fund managers, fintechs — where the community's reach and capital meet a company's need for engaged, informed investors.",
     highlights: [
@@ -108,9 +129,12 @@ export const PROJECTS = [
     links: { live: "https://mlcenter.se/", github: "" }
   },
   {
-    id: "5", title: "Catery", year: "2024 — 2025", category: "consulting",
+    id: "5", slug: "catery", title: "Catery", year: "2024 — 2025", category: "consulting",
     role: "Co-Founder",
-    image: "/catery.png",
+    imageSmall: "/catery-400.webp",
+    imageLarge: "/catery-1200.webp",
+    imageW: 1200, imageH: 615,
+    imageAlt: "Catery's Swedish homepage on a green gradient, with a catering request field and three cards explaining the service.",
     short: "Built supply and demand sides of a foodtech marketplace from zero. Restaurants, corporate buyers, partnerships.",
     goal: "Build the supply side (restaurants) and demand side (corporate catering buyers) from zero. Own outreach, positioning, partnership deals, and the messaging.",
     highlights: [

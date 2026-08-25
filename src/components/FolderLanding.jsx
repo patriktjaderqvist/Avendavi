@@ -1,13 +1,22 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const isTouchDevice = () => window.matchMedia('(hover: none)').matches
+
 export default function FolderLanding({ onOpen }) {
   const [opening, setOpening] = useState(false)
+  const [touch, setTouch] = useState(false)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    setTouch(isTouchDevice())
+  }, [])
   const dragRot = useRef({ x: 0, y: 0 })
   const isDragging = useRef(false)
   const lastPointer = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
+    if (reducedMotion()) return
     const onMove = (e) => {
       const nx = (e.clientX / window.innerWidth) * 2 - 1
       const ny = -(e.clientY / window.innerHeight) * 2 + 1
@@ -38,7 +47,7 @@ export default function FolderLanding({ onOpen }) {
   const handleClick = useCallback(() => {
     if (opening) return
     setOpening(true)
-    setTimeout(() => onOpen(), 750)
+    setTimeout(() => onOpen(), reducedMotion() ? 0 : 750)
   }, [opening, onOpen])
 
   return (
@@ -51,7 +60,9 @@ export default function FolderLanding({ onOpen }) {
           style={{ transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` }}
         >
           <div className="folder-float">
-            <div
+            <button
+              type="button"
+              aria-label="Open Avendavi"
               className="folder-body"
               onClick={handleClick}
               style={{ transformStyle: 'preserve-3d' }}
@@ -64,12 +75,12 @@ export default function FolderLanding({ onOpen }) {
               <div className={`folder-strap ${opening ? 'open' : ''}`} />
               <div className={`folder-panel folder-front leather-surface ${opening ? 'open' : ''}`} />
               <SilverBuckle isOpen={opening} />
-            </div>
+            </button>
           </div>
         </div>
       </div>
 
-      <div className="hint">Click to open · Drag to explore</div>
+      <div className="hint">{touch ? 'Tap to open' : 'Click to open · Drag to explore'}</div>
     </div>
   )
 }
