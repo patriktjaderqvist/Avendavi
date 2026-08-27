@@ -436,7 +436,7 @@ export function ConnectTab() {
         <footer className="connect-footer">
           <div className="monogram" />
           <div className="marque">Avendavi AB</div>
-          <div className="copy">Stockholm · MMXXV</div>
+          <div className="copy">Stockholm</div>
         </footer>
       </div>
     </div>

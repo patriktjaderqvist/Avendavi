@@ -544,11 +544,9 @@ main:focus { outline: none; }
   align-items: flex-end;
   gap: 0;
   flex: 1;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;
+  row-gap: 4px;
 }
-.tab-row::-webkit-scrollbar { display: none; }
 .tab {
   position: relative;
   padding: 14px clamp(14px, 2.4vw, 28px);
