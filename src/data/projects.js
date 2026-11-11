@@ -1,22 +1,41 @@
 export const PROJECTS = [
   {
-    id: "1", slug: "traided", title: "Traided", year: "2025", category: "ventures",
+    id: "8", slug: "easykvm", title: "EasyKVM", year: "2026", category: "ventures",
     role: "Founder · Full-Stack",
-    imageSmall: "/traided-400.webp",
-    imageLarge: "/traided-1200.webp",
-    imageW: 1200, imageH: 598,
-    imageAlt: "Traided's dark landing page, headline 'Your Edge, Our Execution' next to a chat panel logging a BTC trade execution.",
-    short: "Natural-language trading automation. Strategies described in plain English, executed 24/7.",
-    goal: "Let anyone automate trading strategies without writing code. Translate plain-English strategy descriptions into executable trading logic that runs around the clock.",
+    imageSmall: "/easykvm-400.webp",
+    imageLarge: "/easykvm-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "EasyKVM's headline 'The software KVM switch that flips your monitor between two computers' beside the paired app window.",
+    short: "A software KVM switch. Press a hotkey — your monitor flips between two computers; keyboard, mouse, and audio follow. No hardware box, no cloud, no traffic ever leaves the LAN.",
+    goal: "Replace the hardware KVM. Most people don't want a $200 box and a port-matching ordeal — they want the result: one monitor, one keyboard, one mouse, two computers, one hotkey to swap. EasyKVM does that in software over the LAN.",
     highlights: [
-      "Natural language strategy parsing via LLM",
-      "Real-time market data integration",
-      "Backtesting engine against historical data",
-      "Secure broker API integrations"
+      "Monitor input switching via DDC/CI — no pixel streaming, native display quality on each machine",
+      "Keyboard, mouse, and audio handoff with <50 ms LAN round-trip latency; ScreenCaptureKit on macOS 13+",
+      "Pair over LAN with a 6-digit code; TLS handshake with TOFU cert-thumbprint pinning, no accounts, zero telemetry",
+      "Native Swift / AppKit app on Mac, .NET 8 with WebView2 on Windows; Sparkle auto-updates signed with EdDSA",
+      "Ed25519-signed license tokens verified offline on every launch; Stripe checkout + Fastify/Postgres license server"
     ],
-    stack: ["Python", "FastAPI", "React", "PostgreSQL", "OpenAI", "Docker"],
-    links: { live: "https://traided.vercel.app/", github: "https://github.com/patriktjaderqvist/traided" },
-    featured: true
+    stack: ["Swift / AppKit", ".NET 8", "Fastify (Node 22)", "PostgreSQL 16", "Stripe", "Sparkle / Ed25519", "Docker"],
+    links: { live: "https://easykvm.app/", github: "" }
+  },
+  {
+    id: "10", slug: "tradeshot", title: "Tradeshot", year: "2026", category: "ventures",
+    role: "Founder · Full-Stack",
+    imageSmall: "/tradeshot-400.webp",
+    imageLarge: "/tradeshot-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Tradeshot's dark hero, 'Don't post the screenshot. Post the tradeshot.' with 'screenshot' struck through, over a rising lime line chart.",
+    short: "Trades turned into video replays. A moving chart that autoplays in the feed, where a static screenshot gets scrolled past.",
+    goal: "Make a trade worth stopping for. A screenshot of a closed trade is a static image that shows the result and hides how it got there. Tradeshot turns the trade into a replay of the chart, sized for each feed and stamped with the trader's handle.",
+    highlights: [
+      "Three export ratios: 9:16 for TikTok, Reels and Shorts; 1:1 for Instagram and X; 16:9 for X, YouTube and Discord",
+      "Every replay carries the trader's @handle and theme; on Creator, share pages show both",
+      "Doubles as a trade review: the setup behind the entry, the drawdown sat through, how close the stop came, what was left on the table",
+      "Free at 1 export a day (15 s, 720p 30fps); Trader at $2.99/mo or $24.99/yr (5 a day, 30 s, 1080p 60fps, own theme, no end card)",
+      "Creator at $4.99/mo or $39.99/yr: 10 exports a day, 1-minute replays, saved themes, footer label, lasting share links"
+    ],
+    stack: ["Next.js", "React"],
+    links: { live: "https://tradeshot.app/", github: "" }
   },
   {
     id: "2", slug: "dletter", title: "DLetter", year: "2025", category: "ventures",
@@ -37,44 +56,6 @@ export const PROJECTS = [
     links: { live: "https://dletter.app/", github: "https://github.com/patriktjaderqvist/dletter" }
   },
   {
-    id: "7", slug: "caiche", title: "Caiche", year: "2026", category: "ventures",
-    role: "Founder · Full-Stack",
-    imageSmall: "/caiche-400.webp",
-    imageLarge: "/caiche-1200.webp",
-    imageW: 1200, imageH: 650,
-    imageAlt: "Caiche in stark black on white: 'The cache for agent research', under a preview banner noting payments are in test mode.",
-    short: "A marketplace where AI agents fetch cached, sourced research instead of re-running it. Buyers prepay credits via Stripe; producers earn 90% of every sale of research they've already done.",
-    goal: "Stop AI agents from independently re-running the same research thousands of times a day. Build the trust, payment, and discovery layer that lets one agent's research compound into income for its owner — and a faster, cheaper answer for the next agent that asks the same question.",
-    highlights: [
-      "MCP server + HTTP API with Bearer-key auth and per-query credit debits",
-      "Stripe Checkout for buyer top-ups; Stripe Connect Express for producer payouts",
-      "\"Caiche me\" magic-phrase flow turns any cache miss into a new published unit",
-      "Local sentence-transformers for embeddings; pgvector retrieval; Claude Haiku reviewer",
-      "Source-URL liveness checks, SSRF defence, prompt-injection hardening, full security audit shipped"
-    ],
-    stack: ["Python", "FastAPI", "FastMCP", "PostgreSQL + pgvector", "Stripe Connect", "Anthropic", "Docker"],
-    links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
-  },
-  {
-    id: "8", slug: "easykvm", title: "EasyKVM", year: "2026", category: "ventures",
-    role: "Founder · Full-Stack",
-    imageSmall: "/easykvm-400.webp",
-    imageLarge: "/easykvm-1200.webp",
-    imageW: 1200, imageH: 650,
-    imageAlt: "EasyKVM's headline 'The software KVM switch that flips your monitor between two computers' beside the paired app window.",
-    short: "A software KVM switch. Press a hotkey — your monitor flips between two computers; keyboard, mouse, and audio follow. No hardware box, no cloud, no traffic ever leaves the LAN.",
-    goal: "Replace the hardware KVM. Most people don't want a $200 box and a port-matching ordeal — they want the result: one monitor, one keyboard, one mouse, two computers, one hotkey to swap. EasyKVM does that in software over the LAN.",
-    highlights: [
-      "Monitor input switching via DDC/CI — no pixel streaming, native display quality on each machine",
-      "Keyboard, mouse, and audio handoff with <50 ms LAN round-trip latency; ScreenCaptureKit on macOS 13+",
-      "Pair over LAN with a 6-digit code; TLS handshake with TOFU cert-thumbprint pinning, no accounts, zero telemetry",
-      "Native Swift / AppKit app on Mac, .NET 8 with WebView2 on Windows; Sparkle auto-updates signed with EdDSA",
-      "Ed25519-signed license tokens verified offline on every launch; Stripe checkout + Fastify/Postgres license server"
-    ],
-    stack: ["Swift / AppKit", ".NET 8", "Fastify (Node 22)", "PostgreSQL 16", "Stripe", "Sparkle / Ed25519", "Docker"],
-    links: { live: "https://easykvm.app/", github: "" }
-  },
-  {
     id: "9", slug: "proprinse", title: "Proprinse", year: "2026", category: "ventures",
     role: "Founder · Full-Stack",
     imageSmall: "/proprinse-400.webp",
@@ -92,6 +73,44 @@ export const PROJECTS = [
     ],
     stack: ["Next.js", "React"],
     links: { live: "https://proprinse.com/", github: "" }
+  },
+  {
+    id: "1", slug: "traided", title: "Traided", year: "2025", category: "ventures",
+    role: "Founder · Full-Stack",
+    imageSmall: "/traided-400.webp",
+    imageLarge: "/traided-1200.webp",
+    imageW: 1200, imageH: 598,
+    imageAlt: "Traided's dark landing page, headline 'Your Edge, Our Execution' next to a chat panel logging a BTC trade execution.",
+    short: "Natural-language trading automation. Strategies described in plain English, executed 24/7.",
+    goal: "Let anyone automate trading strategies without writing code. Translate plain-English strategy descriptions into executable trading logic that runs around the clock.",
+    highlights: [
+      "Natural language strategy parsing via LLM",
+      "Real-time market data integration",
+      "Backtesting engine against historical data",
+      "Secure broker API integrations"
+    ],
+    stack: ["Python", "FastAPI", "React", "PostgreSQL", "OpenAI", "Docker"],
+    links: { live: "https://traided.vercel.app/", github: "https://github.com/patriktjaderqvist/traided" },
+    featured: true
+  },
+  {
+    id: "7", slug: "caiche", title: "Caiche", year: "2026", category: "ventures",
+    role: "Founder · Full-Stack",
+    imageSmall: "/caiche-400.webp",
+    imageLarge: "/caiche-1200.webp",
+    imageW: 1200, imageH: 650,
+    imageAlt: "Caiche in stark black on white: 'The cache for agent research', under a preview banner noting payments are in test mode.",
+    short: "A marketplace where AI agents fetch cached, sourced research instead of re-running it. Buyers prepay credits via Stripe; producers earn 90% of every sale of research they've already done.",
+    goal: "Stop AI agents from independently re-running the same research thousands of times a day. Build the trust, payment, and discovery layer that lets one agent's research compound into income for its owner — and a faster, cheaper answer for the next agent that asks the same question.",
+    highlights: [
+      "MCP server + HTTP API with Bearer-key auth and per-query credit debits",
+      "Stripe Checkout for buyer top-ups; Stripe Connect Express for producer payouts",
+      "\"Caiche me\" magic-phrase flow turns any cache miss into a new published unit",
+      "Local sentence-transformers for embeddings; pgvector retrieval; Claude Haiku reviewer",
+      "Source-URL liveness checks, SSRF defence, prompt-injection hardening, full security audit shipped"
+    ],
+    stack: ["Python", "FastAPI", "FastMCP", "PostgreSQL + pgvector", "Stripe Connect", "Anthropic", "Docker"],
+    links: { live: "https://caiche.me/", github: "https://github.com/patriktjaderqvist/caiche" }
   },
   {
     id: "3", slug: "liatch", title: "Liatch", year: "2026", category: "academic",
