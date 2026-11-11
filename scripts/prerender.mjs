@@ -41,7 +41,7 @@ const META = [
   { route: '/process', title: 'The Avendavi Process | A Method, Not a Methodology',
     description: 'Listen, diagnose, build — three movements, repeated until the answer is obvious. How Avendavi runs every engagement, without decks or frameworks.' },
   { route: '/work', title: 'Work | Avendavi Ventures',
-    description: 'Products built from the ground up — Traided, DLetter, Caiche, EasyKVM. Each with its own brand, its own audience, all under the Avendavi umbrella.' },
+    description: 'Products built from the ground up. EasyKVM and Tradeshot are on sale now, with DLetter and Proprinse next. All under the Avendavi umbrella.' },
   { route: '/experience', title: 'Experience | Avendavi Client Work',
     description: 'Work done for clients who needed a sharper eye on their product, process, or strategy. Some outcomes are public, most are not.' },
   { route: '/academic', title: 'Academic Work | Avendavi Foundations',
